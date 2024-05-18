@@ -10,5 +10,6 @@ function playSound(soundPath) {
     // Create a new audio object and play the sound
     currentAudio = new Audio(soundPath);
     currentAudio.play();
+    
 }
 
