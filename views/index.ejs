@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animal Sounds</title>
+    <title>SG Nature Calls</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center my-4">Animal Sounds</h1>
+        <h1 class="text-center my-4">SG Nature Calls</h1>
         <div class="row">
             <% animals.forEach(animal => { %>
                 <div class="col-md-3 mb-4">
                     <div class="card" onclick="playSound('<%= animal.sound %>')">
                         <img src="<%= animal.image %>" class="card-img-top" alt="<%= animal.name %>">
                         <div class="card-body">
-                            <h5 class="card-title text-center"><%= animal.name %></h5>
+                            <h5 class="card-title text-center"><%= animal.name %>
+                            </h5>
                         </div>
                     </div>
                 </div>
