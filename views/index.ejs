@@ -6,18 +6,51 @@
     <title>SG Nature Calls</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .animal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .animal-card {
+            display: flex;
+            flex-direction: column;
+            height: 350px; /* Set a fixed height for the card */
+        }
+        .card {
+            cursor: pointer;
+            width: 100%;
+            height: 100%; /* Ensure the card takes up the full height */
+            display: flex;
+            flex-direction: column;
+        }
+        .card-img-top {
+            object-fit: cover; /* This will crop the image to fit the card */
+            height: 70%; /* Set the image to take up 70% of the card height */
+            width: 100%; /* Ensure the image takes up the full width */
+        }
+        .card-body {
+            height: 30%; /* The remaining height for the card body */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-title {
+            margin: 0; /* Remove default margins */
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1 class="text-center my-4">SG Nature Calls</h1>
-        <div class="row">
+        <div class="animal-grid">
             <% animals.forEach(animal => { %>
-                <div class="col-md-3 mb-4">
+                <div class="animal-card">
                     <div class="card" onclick="playSound('<%= animal.sound %>')">
                         <img src="<%= animal.image %>" class="card-img-top" alt="<%= animal.name %>">
                         <div class="card-body">
-                            <h5 class="card-title text-center"><%= animal.name %>
-                            </h5>
+                            <h5 class="card-title"><%= animal.name %></h5>
                         </div>
                     </div>
                 </div>
@@ -25,6 +58,16 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="/js/scripts.js"></script>
+    <script>
+        let currentAudio = null;
+        function playSound(sound) {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            currentAudio = new Audio(sound);
+            currentAudio.play();
+        }
+    </script>
 </body>
 </html>
