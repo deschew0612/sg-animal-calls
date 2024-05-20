@@ -30,3 +30,7 @@ function playSound(sound) {
         }, 10000);
     }
 }
+
+/*auto-complete function for search bar??*/
+
+// https://medium.com/@nguynvithng_34102/making-a-simple-autocomplete-search-box-639b26a372cd

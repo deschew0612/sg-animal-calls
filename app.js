@@ -6,6 +6,9 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Sample data
+
+const animalnames = ['Smooth-Coated Otter', 'Male Asian Koel', 'Coppersmith Barbet']; 
+
 const animals = [
     { 
         name: 'Smooth-Coated Otter', 
@@ -88,7 +91,6 @@ app.get('/animal/:id', (req, res) => {
 
     res.render('animal', { animal });
 });
-
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

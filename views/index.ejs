@@ -11,6 +11,14 @@
     <div class="container">
         <h1 class="text-center my-4">SG Nature Calls</h1>
         <h5 class="text-center my-4">Click photo for sound, Click name for more info</h5>
+        
+        <!-- Search Bar -->
+        <div class="autocomplete-search-box">
+            <input type="text" class="search-box" placeholder="Search for an animal..."/>
+            <ul class="search-result"></ul>
+        </div>        
+        
+        
         <div class="animal-grid">
             <% animals.forEach((animal, id) => { %>
                 <div class="animal-card">

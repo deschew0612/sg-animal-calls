@@ -8,7 +8,7 @@
 
 @media (max-width: 400px) {
     .animal-grid {
-        grid-template-columns: repeat(2, 1fr); /* Ensure minimum 2 columns on very small screens */
+        grid-template-columns: repeat(2, 1fr); /* Ensure minimum 2 columns on very small screens -- doesn't work on hp */
     }
 }
 
@@ -34,7 +34,7 @@
 }
 
 .card-img-top {
-    object-fit: fill; /* Resize the image to fill the card (no white space) */
+    object-fit: fill; /* Resize the image to fill the card (no white space) and ensure img is not cropped (sacrifice aspect ratio)*/
     width: 100%;
     height: 180px; /* Set a fixed height for the image */
 }
@@ -51,4 +51,36 @@
 .card-title {
     margin: 0; /* Remove default margins */
     font-size: 1.2em; /* Adjust the font size */
+}
+
+/* search bar with auto-complete*/
+.autocomplete-search-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.search-result {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    background-color: #f9f9f9;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+
+.suggestion {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background-color: #f1f1f1;
 }
