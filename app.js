@@ -75,10 +75,12 @@ const animals = [
     // Add more animals as needed
 ];
 
+/* show index.ejs with animal grid */
 app.get('/', (req, res) => {
     res.render('index', { animals });
 });
 
+/* show animal.ejs based on animal id clicked*/
 app.get('/animal/:id', (req, res) => {
     const { id } = req.params
 

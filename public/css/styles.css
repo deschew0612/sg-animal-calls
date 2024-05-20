@@ -1,13 +1,30 @@
 /* styles.css */
 .animal-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));/*make the number of cards per row adjust based on the browser size*/
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the number of cards per row based on the browser size */
     gap: 5px;
+    padding: 16px; /* Add some padding around the grid */
 }
+
+@media (max-width: 400px) {
+    .animal-grid {
+        grid-template-columns: repeat(2, 1fr); /* Ensure minimum 2 columns on very small screens */
+    }
+}
+
 .animal-card {
     display: flex;
     flex-direction: column;
+    border: 1px solid #ccc; /* Add border to each card */
+    border-radius: 8px; /* Rounded corners for each card */
+    overflow: hidden;
+    transition: transform 0.3s;
 }
+
+.animal-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+}
+
 .card {
     cursor: pointer;
     width: 100%;
@@ -15,19 +32,23 @@
     display: flex;
     flex-direction: column;
 }
+
 .card-img-top {
-    object-fit: fill; /* Resize the image to fill the card (no white space) and show the whole pic (not cropped), although aspect ratio suffers abit*/
+    object-fit: fill; /* Resize the image to fill the card (no white space) */
     width: 100%;
     height: 180px; /* Set a fixed height for the image */
 }
+
 .card-body {
-    /*height: 30%; /* The remaining height for the card body */
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100px; /* The remaining height for the card body */
+    padding: 16px; /* Adjust padding inside cards as needed */
+    height: 100px; /* Fixed height for the card body */
+    text-align: center; /* Center the text */
 }
+
 .card-title {
     margin: 0; /* Remove default margins */
-    text-align: center;
+    font-size: 1.2em; /* Adjust the font size */
 }
