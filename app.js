@@ -16,7 +16,7 @@ const animals = [
         // funFacts: 'There are two types in SG: smooth-coated otters on the mainland, small-clawed otters on the islands' 
     },
     { 
-        name: 'Asian Male Koel', 
+        name: 'Male Asian Koel', 
         image: '/images/koel.jpeg', 
         sound: '/sounds/koel.wav' 
         // location: 'They seem to be everywhere!'

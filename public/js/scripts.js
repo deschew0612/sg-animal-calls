@@ -1,17 +1,32 @@
 let currentAudio = null;
+let timeoutId = null;
 
-function playSound(soundPath) {
-    // Stop the currently playing audio, if any
-    if (currentAudio) {
+function playSound(sound) {
+    // Check if the audio is already playing and if it's the same sound
+    if (currentAudio && !currentAudio.paused && currentAudio.src === new URL(sound, document.baseURI).href) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
-    }
-    
-    // Create a new audio object and play the sound
-    currentAudio = new Audio(soundPath);
-    currentAudio.play();
-    
-    console.log('hello')
-}
+        clearTimeout(timeoutId);
+        currentAudio = null; // Reset currentAudio
+    } else {
+        // If another audio is playing, stop it first
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+            clearTimeout(timeoutId);
+        }
 
-// setTimeout()
+        // Create a new Audio object and play it
+        currentAudio = new Audio(sound);
+        currentAudio.play();
+
+        // Set a timeout to stop the audio after 10 seconds
+        timeoutId = setTimeout(() => {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+                currentAudio = null; // Reset currentAudio
+            }
+        }, 10000);
+    }
+}
