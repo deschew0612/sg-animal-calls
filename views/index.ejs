@@ -10,13 +10,14 @@
 <body>
     <div class="container">
         <h1 class="text-center my-4">SG Nature Calls</h1>
+        <h5 class="text-center my-4">Click photo for sound, Click name for more info</h5>
         <div class="animal-grid">
-            <% animals.forEach(animal => { %>
+            <% animals.forEach((animal, id) => { %>
                 <div class="animal-card">
-                    <div class="card" onclick="playSound('<%= animal.sound %>')">
-                        <img src="<%= animal.image %>" class="card-img-top" alt="<%= animal.name %>">
+                    <div class="card" >
+                        <img src="<%= animal.image %>" class="card-img-top" alt="<%= animal.name %>" onclick="playSound('<%= animal.sound %>')">
                         <div class="card-body">
-                            <h5 class="card-title"><%= animal.name %></h5>
+                            <h5 class="card-title" onclick="location.href = 'animal/<%= id %>';" ><%= animal.name %></h5>
                         </div>
                     </div>
                 </div>
@@ -24,7 +25,7 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script>
+    <!-- <script>
         let currentAudio = null;
         function playSound(sound) {
             if (currentAudio) {
@@ -33,7 +34,8 @@
             }
             currentAudio = new Audio(sound);
             currentAudio.play();
-        }
-    </script>
+        } -->
+    <script src="/js/scripts.js"></script>
+
 </body>
 </html>

@@ -11,6 +11,7 @@ const animals = [
         name: 'Smooth-Coated Otter', 
         image: '/images/otter.jpeg', 
         sound: '/sounds/otter.mp3',
+        description: 'some text',
         // location: 'They seem to be everywhere! See https://www.facebook.com/OtterWatch/'
         // funFacts: 'There are two types in SG: smooth-coated otters on the mainland, small-clawed otters on the islands' 
     },
@@ -76,6 +77,14 @@ const animals = [
 
 app.get('/', (req, res) => {
     res.render('index', { animals });
+});
+
+app.get('/animal/:id', (req, res) => {
+    const { id } = req.params
+
+    const animal = animals[id]
+
+    res.render('animal', { animal });
 });
 
 

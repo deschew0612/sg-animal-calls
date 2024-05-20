@@ -11,5 +11,7 @@ function playSound(soundPath) {
     currentAudio = new Audio(soundPath);
     currentAudio.play();
     
+    console.log('hello')
 }
 
+// setTimeout()
