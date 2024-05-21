@@ -31,6 +31,8 @@ function playSound(sound) {
     }
 }
 
+/*filter by habitat function*/
+
 /*auto-complete function for search bar??*/
 
 // https://medium.com/@nguynvithng_34102/making-a-simple-autocomplete-search-box-639b26a372cd

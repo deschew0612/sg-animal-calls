@@ -7,76 +7,52 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Sample data
 
-const animalnames = ['Smooth-Coated Otter', 'Male Asian Koel', 'Coppersmith Barbet']; 
-
 const animals = [
     { 
         name: 'Smooth-Coated Otter', 
         image: '/images/otter.jpeg', 
         sound: '/sounds/otter.mp3',
         description: 'some text',
-        // location: 'They seem to be everywhere! See https://www.facebook.com/OtterWatch/'
-        // funFacts: 'There are two types in SG: smooth-coated otters on the mainland, small-clawed otters on the islands' 
+        habitat: 'Mangrove/Coastal',
+        type: 'Others'
     },
     { 
-        name: 'Male Asian Koel', 
+        name: 'Asian Koel', 
         image: '/images/koel.jpeg', 
-        sound: '/sounds/koel.wav' 
-        // location: 'They seem to be everywhere!'
-        // funFacts: "They are parasites that lay eggs in the nests of other birds, which provide parental care until the chick is able to fly. The chick may even force the host's eggs or chicks out of the nest!"
+        sound: '/sounds/koel.wav',
+        habitat: ['Forest/Park', 'Urban'],
+        type: 'Bird'
     },
     { 
         name: 'Coppersmith Barbet', 
         image: '/images/coppersmith_barbet.jpeg', 
-        sound: '/sounds/coppersmith_barbet.mp3' 
-        // location: 'They seem to be everywhere!'
-        // funFacts: 
+        sound: '/sounds/coppersmith_barbet.mp3',
+        habitat: ['Forest/Park', 'Urban'],
+        type: 'Bird'
     },
     { 
         name: 'Collared Kingfisher', 
         image: '/images/collared_kingfisher.jpeg', 
-        sound: '/sounds/collared_kingfisher.mp3' 
-        // location: 'They seem to be everywhere!'
-        // funFacts: 
+        sound: '/sounds/collared_kingfisher.mp3',
+        habitat: ['Forest/Park', 'Urban'],
+        type: 'Bird'
     },
     { 
         name: 'Red Junglefowl', 
         image: '/images/red_junglefowl.jpeg', 
-        sound: '/sounds/red_junglefowl.mp3' 
-        // location: 'They seem to be everywhere!'
-        // funFacts: 
+        sound: '/sounds/red_junglefowl.mp3',
+        habitat: ['Forest/Park', 'Urban'],
+        type: 'Bird'
     },
     { 
         name: 'Katydid', 
         image: '/images/katydid.jpeg', 
-        sound: '/sounds/katydid.mp3' 
-        // location: 'They seem to be everywhere!'
-        // funFacts: 
-    },
-    // { 
-    //     name: 'Greater Racket-Tailed Drongo', 
-    //     image: '/images/drongo.jpeg', 
-    //     sound: '/sounds/otter.mp3',
-    //     // location: 'They seem to be everywhere! See https://www.facebook.com/OtterWatch/'
-    //     // funFacts: 
-    // },
-    // { 
-    //     name: 'Straw-Headed Bulbul', 
-    //     image: '/images/strawheaded_bulbul.jpeg', 
-    //     sound: '/sounds/koel.wav' 
-    //     // location: 'They seem to be everywhere!'
-    //     // funFacts: 
-    // },
-    // { 
-    //     name: 'Hill Mynah', 
-    //     image: '/images/hill_mynah.jpeg', 
-    //     sound: '/sounds/otter.mp3',
-    //     // location: 'They seem to be everywhere! See https://www.facebook.com/OtterWatch/'
-    //     // funFacts: 
-    // },
-
-    // Add more animals as needed
+        sound: '/sounds/katydid.mp3',
+        habitat: 'Forest/Park',
+        type: 'Others'
+    }
 ];
+
 
 /* show index.ejs with animal grid */
 app.get('/', (req, res) => {
@@ -90,6 +66,11 @@ app.get('/animal/:id', (req, res) => {
     const animal = animals[id]
 
     res.render('animal', { animal });
+});
+
+/* show sources.ejs when user clicks 'Sources'*/
+app.get('/sources', (req, res) => {
+    res.render('sources');
 });
 
 const port = process.env.PORT || 3000;

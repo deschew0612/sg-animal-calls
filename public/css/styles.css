@@ -84,3 +84,18 @@
 .suggestion:hover {
     background-color: #f1f1f1;
 }
+
+/* Table styles */
+table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+thead th {
+    background-color: #343a40;
+    color: white;
+}
+
+.table-animals {
+    width: 20%; 
+}

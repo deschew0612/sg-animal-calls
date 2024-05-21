@@ -11,14 +11,25 @@
     <div class="container">
         <h1 class="text-center my-4">SG Nature Calls</h1>
         <h5 class="text-center my-4">Click photo for sound, Click name for more info</h5>
-        
-        <!-- Search Bar -->
+
+        <!-- Search Bar !NO JS YET-->
         <div class="autocomplete-search-box">
             <input type="text" class="search-box" placeholder="Search for an animal..."/>
             <ul class="search-result"></ul>
         </div>        
-        
-        
+            
+        <!-- Habitat Filter !NO JS YET-->
+        <div class="my-4">
+            <label for="habitatFilter">Choose a habitat:</label>
+            <select id="habitatFilter" class="form-control">
+                <option value="all" selected>All</option>
+                <option value="Urban">Urban</option>
+                <option value="Forest/Park">Forest/Park</option>
+                <option value="Mangrove/Coastal">Mangrove/Coastal</option>
+            </select>
+            </div>
+
+    <!--Animal grid-->
         <div class="animal-grid">
             <% animals.forEach((animal, id) => { %>
                 <div class="animal-card">
@@ -31,6 +42,12 @@
                 </div>
             <% }) %>
         </div>
+
+        <!--Sources-->
+        <div>
+            <h6 class="text-center my-4" style="font-weight: bold; text-decoration: underline;" onclick="location.href = 'sources';">Sources</h6>
+        </div> 
+
     </div>
     <script src="/js/scripts.js"></script>
 
