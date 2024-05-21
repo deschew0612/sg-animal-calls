@@ -32,11 +32,11 @@
     <!--Animal grid-->
         <div class="animal-grid">
             <% animals.forEach((animal, id) => { %>
-                <div class="animal-card">
+                <div id="<%= id %>" class="animal-card">
                     <div class="card" >
                         <img src="<%= animal.image %>" class="card-img-top" alt="<%= animal.name %>" onclick="playSound('<%= animal.sound %>')">
                         <div class="card-body">
-                            <h5 class="card-title" onclick="location.href = 'animal/<%= id %>';" ><%= animal.name %></h5>
+                            <h5 class="card-title" onclick="location.href = 'animals/<%= id %>';" ><%= animal.name %></h5>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
         </div> 
 
     </div>
-    <script src="/js/scripts.js"></script>
-
+    <script src="/js/filters.js"></script>
+    <script src="/js/sounds.js"></script>
 </body>
 </html>

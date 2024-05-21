@@ -31,7 +31,8 @@ function playSound(sound) {
     }
 }
 
-/*filter by habitat function*/
+
+
 
 /*auto-complete function for search bar??*/
 
