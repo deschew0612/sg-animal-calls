@@ -11,9 +11,14 @@
     <h1>Thank you to ...</h1>
 
     <table class="table table-striped table-bordered table-hover mt-4">
+        <colgroup>
+            <col class="col-name">
+            <col class="col-image">
+            <col class="col-audio">
+        </colgroup>
         <thead class="thead-dark">
             <tr>
-                <th scope="col" class="table-animals">Animal</th>
+                <th scope="col">Animal</th>
                 <th scope="col">Image</th>
                 <th scope="col">Audio</th>
             </tr>
@@ -22,8 +27,8 @@
             <% animals.forEach((animal, id) => { %>
                 <tr id="<%= id %>">
                     <td><%= animal.name %></td>
-                    <td></td>
-                    <td></td>
+                    <td><%= animal.imageLink %></td>
+                    <td><%= animal.soundLink %></td>
                 </tr>
                 <% }) %>
         </tbody>

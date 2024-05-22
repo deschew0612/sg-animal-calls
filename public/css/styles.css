@@ -96,6 +96,15 @@ thead th {
     color: white;
 }
 
-.table-animals {
-    width: 20%; 
+/*the table doesn't render acc to these ratios*/
+.col-name {
+    width: 20%;
+}
+
+.col-image {
+    width: 40%;
+}
+
+.col-audio {
+    width: 40%;
 }
