@@ -19,11 +19,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Smooth-Coated Otter</td>
-                <td>bb</td>
-                <td>cc</td>
-            </tr>
-    
+            <% animals.forEach((animal, id) => { %>
+                <tr id="<%= id %>">
+                    <td><%= animal.name %></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <% }) %>
+        </tbody>
+           
 </body>
 </html>
