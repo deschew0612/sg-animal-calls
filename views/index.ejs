@@ -6,6 +6,17 @@
     <title>SG Nature Calls</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJ97WLGCX5"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YJ97WLGCX5');
+    </script>
+    
 </head>
 <body>
     <div class="container">
@@ -31,8 +42,8 @@
 
     <!--Animal grid-->
         <div class="animal-grid">
-            <!-- <% animals.forEach((animal, id) => { %>
-                <div id="<%= id %>" class="animal-card col-lg-4 col-md-6 mb-4">
+            <% animals.forEach((animal, id) => { %>
+                <div id="<%= id %>" class="animal-card">
                     <div class="card" >
                         <img src="<%= animal.image %>" class="card-img-top" alt="<%= animal.name %>" onclick="playSound('<%= animal.sound %>')">
                         <div class="card-body">
@@ -40,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-            <% }) %> -->
+            <% }) %>
         </div>
 
         <!--Sources-->
