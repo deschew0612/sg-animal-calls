@@ -8,6 +8,10 @@ const path = require('path');
 /*import the array of animals in constants module*/
 const constants = require('./lib/constants.js');
 
+// Import PrismaClient
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+
 /*set up the view engine for the Express app to ejs (embedded js)*/
 app.set('view engine', 'ejs');
 /*Serve static files from the 'public' dir*/
@@ -39,7 +43,7 @@ app.get('/animals/:id', (req, res) => {
 app.get('/sources', (req, res) => {
     res.render('sources',{ animals });
 });
-
+  
 /*start the server*/
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

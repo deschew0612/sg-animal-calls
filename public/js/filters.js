@@ -1,43 +1,41 @@
 
-/*filter by habitat function*/
-/* registers user's selection of habitat*/
-// document.getElementById("habitatFilter").addEventListener('change', 
-//      async function() {
-//          var selectedHabitat = this.value;
-//          console.log(selectedHabitat);
-//          const animalsResponse = await fetch('/animals')
-//          const animals = await animalsResponse.json()
-//          animals.forEach(function(animal) {
-//              if (animal.habitat.includes(selectedHabitat)){
-//                  console.log(animal);
-//              }
-//          })
-//      }
-//  );
-
 let cachedAnimals = null;
 
-/* Filter by habitat function */
+/*apply both habitat and user search filter*/
+const twoFilters = async function(animal,habitat){
+        if (!cachedAnimals) {
+            try {
+                const animalsResponse = await fetch('/animals');
+                cachedAnimals = await animalsResponse.json();
+            } catch (error) {
+                console.error('Error fetching animal data:', error);
+                return;
+                    }
+                }
+        
+        const filteredAnimals = cachedAnimals.filter(x => x.name.toLowerCase().includes(animal.toLowerCase()));
+        const finalAnimals = filteredAnimals.filter(x => x.habitat.includes(habitat));
+        console.log(animal, filteredAnimals)
+        console.log(habitat, finalAnimals)
+        renderAnimals(finalAnimals);
+    };
+
+/* activate filter when there is a change to habitat filter dropdown */
 document.getElementById("habitatFilter").addEventListener('change', async function() {
     var selectedHabitat = this.value;
-    console.log(selectedHabitat);
-
-    if (!cachedAnimals) {
-        try {
-            const animalsResponse = await fetch('/animals');
-            cachedAnimals = await animalsResponse.json();
-        } catch (error) {
-            console.error('Error fetching animal data:', error);
-            return;
-        }
-    }
-
-    // Filter animals based on the selected habitat
-    const filteredAnimals = selectedHabitat === 'all' ? cachedAnimals : cachedAnimals.filter(animal => animal.habitat.includes(selectedHabitat));
-
-    // Render filtered animals
-    renderAnimals(filteredAnimals);
+    var selectedAnimal = document.getElementById("search-box");
+    twoFilters(selectedAnimal.value,selectedHabitat);
 });
+
+/* activate filter when user searches for animal name */
+document.getElementById("search-box").addEventListener('keyup', async function(event) {
+    if (event.key === "Enter") {
+        var selectedAnimal = this.value;
+        var selectedHabitat = document.getElementById("habitatFilter");
+        twoFilters(selectedAnimal,selectedHabitat.value); 
+    }
+    });
+    
 
 /* Render animals function */
 function renderAnimals(animals) {

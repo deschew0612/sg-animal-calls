@@ -23,17 +23,17 @@
         <h1 class="text-center my-4">SG Nature Calls</h1>
         <h5 class="text-center my-4">Click photo for sound, Click name for more info</h5>
 
-        <!-- Search Bar !NO JS YET-->
+        <!-- Search Bar-->
         <div class="autocomplete-search-box">
-            <input type="text" class="search-box" placeholder="Search for an animal..."/>
+            <input type="text" class="search-box" id="search-box" placeholder="Search for animal..."/>
             <ul class="search-result"></ul>
         </div>        
             
-        <!-- Habitat Filter !figuring out JS -->
+        <!-- Habitat Filter-->
         <div class="my-4">
             <label for="habitatFilter">Choose a habitat:</label>
             <select id="habitatFilter" class="form-control">
-                <option value="all" selected>All</option>
+                <option value="All" selected>All</option>
                 <option value="Urban">Urban</option>
                 <option value="Forest/Park">Forest/Park</option>
                 <option value="Mangrove/Coastal">Mangrove/Coastal</option>
@@ -42,16 +42,6 @@
 
     <!--Animal grid-->
         <div class="animal-grid">
-            <!-- <% animals.forEach((animal, id) => { %>
-                <div id="<%= id %>" class="animal-card">
-                    <div class="card" >
-                        <img src="<%= animal.image %>" class="card-img-top" alt="<%= animal.name %>" onclick="playSound('<%= animal.sound %>')">
-                        <div class="card-body">
-                            <h5 class="card-title" onclick="location.href = 'animals/<%= id %>';" ><%= animal.name %></h5>
-                        </div>
-                    </div>
-                </div>
-            <% }) %> -->
         </div>
 
         <!--Sources-->
@@ -71,5 +61,6 @@
 
     <script src="/js/filters.js"></script>
     <script src="/js/sounds.js"></script>
+    
 </body>
 </html>

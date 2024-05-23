@@ -1,19 +1,16 @@
 /* styles.css */
 .animal-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the number of cards per row based on the browser size */
+    justify-content: center;
+    display: flex;
     gap: 5px;
     padding: 16px; /* Add some padding around the grid */
+    flex-wrap: wrap;
 }
 
-@media (max-width: 400px) {
-    .animal-grid {
-        grid-template-columns: repeat(2, 1fr); /* Ensure minimum 2 columns on very small screens -- doesn't work on hp */
-    }
-}
 
 .animal-card {
     display: flex;
+    max-width: 300px;
     flex-direction: column;
     border: 1px solid #ccc; /* Add border to each card */
     border-radius: 8px; /* Rounded corners for each card */
@@ -43,9 +40,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 16px; /* Adjust padding inside cards as needed */
-    height: 100px; /* Fixed height for the card body */
-    text-align: center; /* Center the text */
+    padding: 16px;
+    height: 100px;
+    text-align: center;
 }
 
 .card-title {
@@ -89,6 +86,8 @@
 table {
     width: 100%;
     margin-top: 20px;
+    overflow-wrap: anywhere;
+    table-layout: fixed;
 }
 
 thead th {
