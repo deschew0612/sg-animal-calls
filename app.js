@@ -16,6 +16,10 @@ const prisma = new PrismaClient();
 app.set('view engine', 'ejs');
 /*Serve static files from the 'public' dir*/
 app.use(express.static(path.join(__dirname, 'public')));
+// Serve images from the 'lib/images' directory
+app.use('/images', express.static(path.join(__dirname, 'lib', 'images')));
+// Serve sounds from the 'lib/images' directory
+app.use('/sounds', express.static(path.join(__dirname, 'lib', 'sounds')));
 /*needed for db: Parse incoming request bodies in a middleware before handlers*/
 app.use(express.urlencoded({ extended: true }));
 
