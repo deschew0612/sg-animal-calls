@@ -58,7 +58,7 @@
 
 .search-box {
     flex: 1; /* Allow the search box to grow to fill available space */
-    max-width: 1000px; /* Set a maximum width for the search box */
+    max-width: 1200px; /* Set a maximum width for the search box */
     margin-right: 10px; /* Add some spacing between the search box and button */
 }
 .search-result {
@@ -71,6 +71,18 @@
     border-top: none;
 }
 
+.btn-primary {
+    background-color: #006400; /* Dark Green color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #004d00; /* Slightly darker green for hover effect */
+}
 .suggestion {
     padding: 10px;
     cursor: pointer;
@@ -115,4 +127,12 @@ footer {
 .disclaimer {
     font-size: 14px;
     color: #6c757d; /* Bootstrap's text-muted color */
+}
+
+.home-button {
+    color: #006400; /* Dark Green color */
+}
+
+.home-button:hover {
+    color: #004d00; /* Slightly darker green for hover effect */
 }

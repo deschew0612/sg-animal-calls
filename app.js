@@ -36,21 +36,21 @@ app.get('/animals', (_req, res) => {
     res.json(animals);
 })
 
-/* Define indiv animal route: extract the 'id' parameter from the request, retrieve the corresponding animal from 'animals' array, render the animal.ejs template with the specific animal's data*/
-app.get('/animals/:id', (req, res) => {
-    const { id } = req.params
+// /* Define indiv animal route: extract the 'id' parameter from the request, retrieve the corresponding animal from 'animals' array, render the animal.ejs template with the specific animal's data*/
+// app.get('/animals/:id', (req, res) => {
+//     const { id } = req.params
 
-    const animal = animals[id]
+//     const animal = animals[id]
 
-    res.render('animal', { animal });
-});
+//     res.render('animal', { animal });
+// });
 
 /* define route -- render the sources.ejs template*/ 
 app.get('/sources', (req, res) => {
     res.render('sources',{ animals });
 });
 
-/* Route to handle form submission for adding a new animal */
+/* Route to handle form submission for submitting animal of interest */
 app.post('/addAnimal', async (req, res) => {
     const { newAnimalName, newAnimalDescription } = req.body;
 
@@ -66,7 +66,7 @@ app.post('/addAnimal', async (req, res) => {
         console.log('New entry received:', createdAnimal);
 
         // Set success message
-        const message = 'Your entry has been received';
+        // const message = 'Your entry has been received';
 
         // Redirect the user back to the homepage or wherever you want
         res.redirect('/');
