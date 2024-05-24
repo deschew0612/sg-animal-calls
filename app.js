@@ -16,6 +16,8 @@ const prisma = new PrismaClient();
 app.set('view engine', 'ejs');
 /*Serve static files from the 'public' dir*/
 app.use(express.static(path.join(__dirname, 'public')));
+/*needed for db: Parse incoming request bodies in a middleware before handlers*/
+app.use(express.urlencoded({ extended: true }));
 
 /*unpack the array of animals in the constants module (akin to a container)*/
 const animals = constants.animals
@@ -43,7 +45,31 @@ app.get('/animals/:id', (req, res) => {
 app.get('/sources', (req, res) => {
     res.render('sources',{ animals });
 });
-  
+
+/* Route to handle form submission for adding a new animal */
+app.post('/addAnimal', async (req, res) => {
+    const { newAnimalName, newAnimalDescription } = req.body;
+
+    try {
+        // Use Prisma to insert the new animal data into the database
+        const createdAnimal = await prisma.userInputAnimal.create({
+            data: {
+                animal: newAnimalName,
+                description: newAnimalDescription
+            }
+        });
+
+        console.log('New entry received:', createdAnimal);
+
+        // Redirect the user back to the homepage or wherever you want
+        res.redirect('/');
+    } catch (error) {
+        // Handle any errors that occur during the database operation
+        console.error('Error sending entry:', error);
+        res.status(500).send('Error sending entry');
+    }
+});
+
 /*start the server*/
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

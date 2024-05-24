@@ -17,5 +17,6 @@ datasource db {
 model UserInputAnimal {
   id         Int       @id @default(autoincrement())
   animal     String
+  description     String  
   timeInput   DateTime @default(now())
 }

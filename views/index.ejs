@@ -40,8 +40,24 @@
             </select>
             </div>
 
-    <!--Animal grid-->
+        <!--Animal grid-->
         <div class="animal-grid">
+        </div>
+    
+        <!-- Add New Animal Form -->
+        <div class="my-4">
+            <h5 class="text-center my-4">Can't find an animal that you have heard before? Let us know.</h5>
+            <form id="addAnimalForm" action="/addAnimal" method="POST">
+                <div class="form-group">
+                    <label for="newAnimalName">Animal Name:</label>
+                    <input type="text" class="form-control" id="newAnimalName" name="newAnimalName" placeholder="Enter animal name (if you know)" required>
+                </div>
+                <div class="form-group">
+                    <label for="newAnimalDescription">Description:</label>
+                    <textarea class="form-control" id="newAnimalDescription" name="newAnimalDescription" rows="3" placeholder="Describe where you heard it and what it sounds like"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
 
         <!--Sources-->
