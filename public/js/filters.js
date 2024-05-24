@@ -27,7 +27,7 @@ document.getElementById("habitatFilter").addEventListener('change', async functi
     twoFilters(selectedAnimal.value,selectedHabitat);
 });
 
-/* apply filter when user searches for animal name */
+/* apply filter when user searches for animal name by pressing enter*/
 document.getElementById("search-box").addEventListener('keyup', async function(event) {
     if (event.key === "Enter" || event.key === 13) {
         var selectedAnimal = this.value;
@@ -36,19 +36,13 @@ document.getElementById("search-box").addEventListener('keyup', async function(e
     }
     });
 
-/* apply filter when the user clicks on the search button */
+/* apply filter when the user searches for animal name by clicking on the search button */
 document.getElementById("search-button").addEventListener('click', async function() {
     var selectedAnimal = document.getElementById("search-box");
     var selectedHabitat = document.getElementById("habitatFilter");
     twoFilters(selectedAnimal.value,selectedHabitat.value); 
 });
 
-/* apply filter when the user clicks on the search button */
-document.getElementById("search-button").addEventListener('touchstart', async function() {
-    var selectedAnimal = document.getElementById("search-box");
-    var selectedHabitat = document.getElementById("habitatFilter");
-    twoFilters(selectedAnimal.value,selectedHabitat.value); 
-});
     
 
 /* Render animals function */
