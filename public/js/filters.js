@@ -29,7 +29,7 @@ document.getElementById("habitatFilter").addEventListener('change', async functi
 
 /* apply filter when user searches for animal name */
 document.getElementById("search-box").addEventListener('keyup', async function(event) {
-    if (event.key === "Enter" || event.key === "Go"|| event.key === "Next") {
+    if (event.key === "Enter" || event.key === 13) {
         var selectedAnimal = this.value;
         var selectedHabitat = document.getElementById("habitatFilter");
         twoFilters(selectedAnimal,selectedHabitat.value); 

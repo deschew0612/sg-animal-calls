@@ -65,11 +65,15 @@ app.post('/addAnimal', async (req, res) => {
 
         console.log('New entry received:', createdAnimal);
 
+        // Set success message
+        const message = 'Your entry has been received';
+
         // Redirect the user back to the homepage or wherever you want
         res.redirect('/');
     } catch (error) {
         // Handle any errors that occur during the database operation
         console.error('Error sending entry:', error);
+
         res.status(500).send('Error sending entry');
     }
 });
