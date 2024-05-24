@@ -20,14 +20,14 @@ const twoFilters = async function(animal,habitat){
         renderAnimals(finalAnimals);
     };
 
-/* activate filter when there is a change to habitat filter dropdown */
+/* apply filter when there is a change to habitat dropdown */
 document.getElementById("habitatFilter").addEventListener('change', async function() {
     var selectedHabitat = this.value;
     var selectedAnimal = document.getElementById("search-box");
     twoFilters(selectedAnimal.value,selectedHabitat);
 });
 
-/* activate filter when user searches for animal name */
+/* apply filter when user searches for animal name */
 document.getElementById("search-box").addEventListener('keyup', async function(event) {
     if (event.key === "Enter") {
         var selectedAnimal = this.value;

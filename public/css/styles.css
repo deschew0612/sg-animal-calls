@@ -1,16 +1,16 @@
 /* styles.css */
 .animal-grid {
-    justify-content: center;
-    display: flex;
+    justify-content: center; /* animal cards are centered container*/
+    display: flex; /*the no. of animal cards in a row adjusts based on browser size */
+    flex-wrap: wrap; /*animal cards go into the next line instead of being forced into one line*/
     gap: 5px;
     padding: 16px; /* Add some padding around the grid */
-    flex-wrap: wrap;
 }
 
 
 .animal-card {
     display: flex;
-    max-width: 300px;
+    max-width: 300px; /*added to ensure the animal card doesn't stretch out when browser size grows*/
     flex-direction: column;
     border: 1px solid #ccc; /* Add border to each card */
     border-radius: 8px; /* Rounded corners for each card */
@@ -87,7 +87,7 @@ table {
     width: 100%;
     margin-top: 20px;
     overflow-wrap: anywhere;
-    table-layout: fixed;
+    table-layout: fixed; /*fixes the column ratios*/
 }
 
 thead th {
@@ -95,7 +95,6 @@ thead th {
     color: white;
 }
 
-/*the table doesn't render acc to these ratios*/
 .col-name {
     width: 20%;
 }
