@@ -52,16 +52,15 @@
 
 /* search bar with auto-complete*/
 .autocomplete-search-box {
-    position: relative;
-    margin-bottom: 20px;
+    display: flex; /* Make the search box and button appear in a row */
+    align-items: center; /* Align items vertically */
 }
 
 .search-box {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
+    flex: 1; /* Allow the search box to grow to fill available space */
+    max-width: 1000px; /* Set a maximum width for the search box */
+    margin-right: 10px; /* Add some spacing between the search box and button */
 }
-
 .search-result {
     position: absolute;
     width: 100%;
@@ -69,7 +68,6 @@
     background-color: #f9f9f9;
     max-height: 150px;
     overflow-y: auto;
-    border: 1px solid #ddd;
     border-top: none;
 }
 
