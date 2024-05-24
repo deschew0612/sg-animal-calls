@@ -42,6 +42,13 @@ document.getElementById("search-button").addEventListener('click', async functio
     var selectedHabitat = document.getElementById("habitatFilter");
     twoFilters(selectedAnimal.value,selectedHabitat.value); 
 });
+
+/* apply filter when the user clicks on the search button */
+document.getElementById("search-button").addEventListener('touchstart', async function() {
+    var selectedAnimal = document.getElementById("search-box");
+    var selectedHabitat = document.getElementById("habitatFilter");
+    twoFilters(selectedAnimal.value,selectedHabitat.value); 
+});
     
 
 /* Render animals function */
