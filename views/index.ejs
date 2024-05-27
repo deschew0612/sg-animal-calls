@@ -6,7 +6,7 @@
     <title>SG Nature Calls</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN for home button-->
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W53YF1K0RT"></script>
@@ -24,9 +24,6 @@
         <h1 class="text-center my-4">SG Nature Calls
             <a href="/" class="ml-2 home-button"><i class="fas fa-home"></i></a> <!-- Home icon with link to home page -->
         </h1>
-        <!-- <h5 class="text-center my-4">
-            Click photo for sound, Click name for more info
-        </h5> -->
 
         <!-- Search Bar-->
         <div class="autocomplete-search-box">
@@ -49,7 +46,19 @@
         <!--Animal grid-->
         <div class="animal-grid">
         </div>
-    
+
+        <!-- Hidden animal card template -->
+        <template id="animal-card-template">
+            <div class="animal-card col-lg-4 col-md-6 mb-4">
+                <div class="card" onclick="playSound('{{sound}}')">
+                    <img src="{{image}}" class="card-img-top" alt="{{name}} Image" tabindex="0">
+                    <div class="card-body">
+                        <h5 class="card-title" tabindex="0">{{name}}</h5>
+                    </div>
+                </div>
+            </div>
+        </template>
+
         <!-- Add New Animal Form -->
         <div class="my-4">
             <h5 class="text-center my-4">Is there another animal that is commonly heard and should be added here? Let us know.</h5>
